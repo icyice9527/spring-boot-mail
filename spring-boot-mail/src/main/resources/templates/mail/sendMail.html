@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>发送邮件</title>
+    <link rel="stylesheet" th:href="@{/iview/iview.css}">
+    <link rel="stylesheet" th:href="@{/flat_ui/css/vendor/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/flat_ui/css/flat-ui.css}">
+    <link rel="stylesheet" th:href="@{/AdminLTE/css/AdminLTE.min.css}">
+    <link rel="stylesheet" th:href="@{/common.css}">
+    <script th:src="@{/libs/jquery-3.2.1.min.js}" type="text/javascript"></script>
+    <script th:src="@{/common.js}" type="text/javascript"></script>
+</head>
+<body>
+<div style="width: 70%;float: left">
+    <form id="mailForm" method="post" class="form-horizontal">
+        <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">收件人邮箱<span class="required" style="color: red">*</span></label>
+            <div class="col-xs-10">
+                <input type="text" id="email" style="height: 30px;margin-top: 10px" class="form-control" required="required" name="email" th:value="${email}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="subject" class="col-sm-2 control-label">邮件主题<span class="required" style="color: red">*</span></label>
+            <div class="col-xs-10">
+                <input type="text" id="subject" style="height: 30px;margin-top: 10px" class="form-control" required="required" name="subject">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">邮件模板</label>
+            <div class="col-xs-10">
+                <input type="text" style="height: 30px;margin-top: 5px" class="form-control" name="template">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">添加附件</label>
+            <div class="col-xs-10">
+                <input type="file" style="height: 30px;margin-top: 5px" id="file" name="files" multiple="multiple">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="content" class="col-sm-2 control-label">邮件内容<span class="required" style="color: red">*</span></label>
+            <div class="col-md-10">
+                <textarea id="content" style="min-height: 250px;margin-top: 5px" class="form-control" required="required" name="content"></textarea>
+            </div>
+        </div>
+
+        <div>
+            <input class="btn btn-primary btn-block" type="button" onclick="sendMail()" value="发送">
+            <input class="btn btn-primary btn-block" type="button" onclick="clearForm()" value="清除">
+        </div>
+    </form>
+</div>
+<div style="width: 20%;float: right;height: 400px;border: 1px solid #665B45">
+    <div style="height: 30px;text-align: center;width: 100%;background-color: #95a5a6">
+        <strong>通讯录</strong>
+    </div>
+    <div id="mailLists" style="overflow-y: auto;height: 360px">
+
+    </div>
+</div>
+
+</body>
+</html>

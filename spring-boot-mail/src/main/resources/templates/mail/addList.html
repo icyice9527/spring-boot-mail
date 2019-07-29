@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/iview/iview.css}">
+    <link rel="stylesheet" th:href="@{/flat_ui/css/vendor/bootstrap.min.css}">
+</head>
+<body>
+<div>
+    <form th:action="@{/{action}(action=${action})}" method="post" class="form-horizontal">
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">姓名<span class="required" style="color: red">*</span></label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" required="required" id="name" name="email" th:value="${name}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">邮箱<span class="required" style="color: red">*</span></label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" required="required" id="email" name="email" th:value="${email}" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="phone" class="col-sm-2 control-label">电话</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="phone" name="phone" th:value="${phone}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="note" class="col-sm-2 control-label">备注</label>
+            <div class="col-xs-4">
+                <textarea id="note" style="min-height: 100px" name="note" class="form-control" th:value="${note}"></textarea>
+<!--                <input type="text" class="form-control" id="note" name="note" th:value="${note}"/>-->
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input class="btn btn-primary" type="submit" value="提交"/>  
+                <input class="btn btn-primary" type="button" value="返回" onclick="history.back()"/>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

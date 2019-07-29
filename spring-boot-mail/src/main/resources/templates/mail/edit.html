@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TEST</title>
+    <link rel="stylesheet" th:href="@{/iview/iview.css}">
+    <script th:src="@{/libs/jquery-3.2.1.min.js}" type="text/javascript"></script>
+    <script th:src="@{/libs/vue.min.js}" type="text/javascript"></script>
+    <script th:src="@{/layer/layer.js}" type="text/javascript"></script>
+    <script th:src="@{/iview/iview.min.js}" type="text/javascript"></script>
+    <script th:src="@{/common.js}" type="text/javascript"></script>
+
+</head>
+<body>
+<div>
+    <table>
+        <legend>
+            <strong><h2>邮件列表</h2></strong>
+        </legend>
+        <tbody class="ivu-table-body" style="font-size: 13px">
+            <tr class="ivu-table-row-highlight">
+                <th class="ivu-table-cell">接收人邮箱</th>
+                <th class="ivu-table-cell">主题</th>
+                <th class="ivu-table-cell">发送内容</th>
+                <th class="ivu-table-cell">模板</th>
+                <th class="ivu-table-cell">发送时间</th>
+                <th class="ivu-table-cell">管理</th>
+            </tr>
+            <tr th:each="email:${emails}" class="ivu-table-row-highlight" style="height: 50px">
+                <td class="ivu-table-cell" th:text="${email.receiveEmail}"></td>
+                <td class="ivu-table-cell" th:text="${email.subject}"></td>
+                <td class="ivu-table-cell" th:text="${email.content}"></td>
+                <td class="ivu-table-cell" th:text="${email.template}"></td>
+                <td class="ivu-table-cell" th:text="${email.sendTime}"></td>
+                <td class="ivu-table-cell"><a th:href="@{/mail/delete/{Id}(Id=${email.id})}" onclick="return confirm('确认删除?')"><span style='color:red'>删除</span></a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
