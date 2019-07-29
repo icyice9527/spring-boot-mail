@@ -1,1 +1,1 @@
-# spring-boot-mail
+本文是根据 小柒2012 的 spring-boot-mail项目改编而来。新增了通讯录以及自定义带附件的邮件发送。
